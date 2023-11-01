@@ -56,14 +56,14 @@
             methods: {
 
                 clickSelectProvince(){
-                    this.provinceKeyArray = Object.keys(this.provinceInfo);
+                    this.provinceKeyArray = Object.keys(this.provinceInfo); // เก็บชื่อจังหวัด
                 },
                 clickSelectDistrict(){
-                    this.districtKeyArray = Object.keys(this.provinceInfo[this.getProvinceInput])
+                    this.districtKeyArray = Object.keys(this.provinceInfo[this.getProvinceInput]) // เก็บชื่ออำเภอ
                 },
                 clickSelectSubdistrict(){
-                    let subdistrict = this.provinceInfo[this.getProvinceInput];
-                    this.subDistrictArray = subdistrict[this.getDistrictInput];
+                    let subdistrict = this.provinceInfo[this.getProvinceInput]; // เก็บชื่ออำเภอ
+                    this.subDistrictArray = subdistrict[this.getDistrictInput]; //  เก็บชื่อตำบล
                 },
             },
             mounted(){
