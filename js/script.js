@@ -12,7 +12,7 @@ createApp({
         mul(){
             let n = this.number;
 
-            for(let i =1; i<=12; i++){
+            for(let i=1; i<=12; i++){
                 this.t += `${i} x ${n} = ${n*i}`;
             }
             
