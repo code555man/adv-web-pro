@@ -1,21 +1,15 @@
 const { createApp, ref } = Vue;
 
 createApp({
-    data() {
-        return {
-            number: '',
-            lt: [],
-            t: '',
-        }
-    },
-    methods: {
-        mul(){
-            let n = this.number;
 
-            for(let i=1; i<=12; i++){
-                this.t += `${i} x ${n} = ${n*i}`;
-            }
-            
-        }
+data(){
+    return {
+        colorPicked: '#000000',
+        colorSelected: '#17b10e',
     }
+},
+methods:{
+    
+},
+
 }).mount('#app')
