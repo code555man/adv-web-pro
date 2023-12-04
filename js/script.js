@@ -4,8 +4,8 @@ createApp({
 
 data(){
     return {
-        colorPicked: '#000000',
-        colorSelected: '#17b10e',
+        isFontColorPicked: '#2196F3',
+        isFontColorSelected: '#2196F3',
     }
 },
 methods:{
