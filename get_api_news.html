@@ -12,14 +12,14 @@
     <div id="app" class="container">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">NewsApi</a>
+              <a class="navbar-brand" href="#">GNEWS</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="get_api_news.html">Home</a>
                   </li>
                 </ul>
                 <form class="d-flex">
@@ -32,21 +32,17 @@
         <main>
             <div class="row">
                 <div class="col">
-                   
-                </div>
-                <div class="col">
-                    <div class="card m-3" v-for="item in newList">
-                        <img src="https://play-lh.googleusercontent.com/OABfRfKxyvf6PUg_6YBJXvbKSbegFsBKvFDEm5jOA0rC5k1la-OwmnWz6GK55vr3EGA=w240-h480-rw" class="card-img-top w-100 h-25" alt="...">
+                    <div class="row-md-6">
+                        <div class="card m-3" v-for="item in newList" :key="item.title">
+                        <img :src="item.image" class="card-img-top w-100 h-25" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{ item.title }}</h5>
-                            <p class="card-text">{{ item.description }}</p>
+                            <p class="card-text">{{ item.content }}</p>
                             <p class="card-text">{{ item.publishedAt }}</p>
-                            <a href="{{ item.url }}" class="btn btn-primary">Read more</a>
+                            <a :href="item.url" target="_blank" class="btn btn-primary">Read more</a>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    
+                    </div>
                 </div>
             </div>
         </main>
@@ -63,21 +59,18 @@
         }
     },
     methods: {
-        clickSearchProvince(){
-            var districts = this.provinceInfo[this.getProvinceInput];
-            this.districtArray = Object.keys(districts);
-        },
+        
     },
     mounted(){
 
         axios({
             method: 'get',
-            url: 'https://newsapi.org/v2/top-headlines?country=th&category=business&apiKey=0afc839b7c0f47b4b01bfdcdc28cf914'
+            url: 'https://gnews.io/api/v4/top-headlines?category=general&lang=en&country=us&max=10&apikey=2ac1e6218a9d083ba4b7391e79175fb9'
         }).then((res) => {
-            this.newList = res.data["articles"];
+            this.newList = res.data.articles;
+            console.log(this.newList);
             //console.log(this.newList[0]["url"]);
         })
-        
     }
 
     }).mount('#app')
