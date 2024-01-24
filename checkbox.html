@@ -57,9 +57,7 @@
               set: function (value) {
                 var checked = [];
                 if (value) {
-                  this.items.forEach(function (lang) {
-                    checked.push(lang.id);
-                  });
+                  this.items.forEach((lang) => {  checked.push(lang.id); });
                 }
                 this.checked = checked;
               }
@@ -70,3 +68,5 @@
     </script>
 </body>
 </html>
+
+  
